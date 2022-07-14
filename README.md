@@ -1,2 +1,1 @@
-# pyrogram-heroku-template
-Basis of my nearly all my bots
+## For projects that can live in a single file
