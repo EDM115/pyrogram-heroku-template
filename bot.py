@@ -17,7 +17,7 @@ template = Client(
     )
 
 async def setCommands():
-    texttourl.set_bot_commands([
+    template.set_bot_commands([
         BotCommand("start", "Useless"),
         BotCommand("log", "Send you the logs, in case it's needed")])
 
@@ -29,11 +29,11 @@ logging.basicConfig(
 LOGGER = logging.getLogger(__name__)
 logging.getLogger("pyrogram").setLevel(logging.WARN)
 
-@texttourl.on_message(filters.command("start"))
+@template.on_message(filters.command("start"))
 async def start_bot(_, message: Message):
     await message.reply_text(text="**Hello {} 👋**".format(message.from_user.mention), disable_web_page_preview=True)
 
-@texttourl.on_message(filters.command("log"))
+@template.on_message(filters.command("log"))
 async def send_logs(_, message: Message):
     with open('logs.txt', 'rb') as doc_f:
         try:
